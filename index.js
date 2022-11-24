@@ -74,7 +74,7 @@ app.use('/venues', venueRoutes);
 
 
 // websockets
-const existsWs = new WebSocketServer({ noServer: true });
+/*const existsWs = new WebSocketServer({ noServer: true });
 const homeSavedWs = new WebSocketServer({ noServer: true });
 const landSavedWs = new WebSocketServer({ noServer: true });
 const venueSavedWs = new WebSocketServer({ noServer: true });
@@ -260,11 +260,11 @@ searchWs.on('connection', (ws) => {
       ],
     }).limit(5);
   });
-});
+});*/
 
 
-
-server.on('upgrade', (request, socket, head) => {
+// web sockt config
+/*server.on('upgrade', (request, socket, head) => {
   const { pathname } = parse(request.url);
 
   if (pathname === '/user/saved/exists') {
@@ -291,7 +291,7 @@ server.on('upgrade', (request, socket, head) => {
     socket.destroy();
   }
  
-});
+});*/
 
 // start server and listen
 server.listen(process.env.PORT, (err) => {
