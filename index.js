@@ -294,9 +294,9 @@ searchWs.on('connection', (ws) => {
 });*/
 
 // start server and listen
-server.listen(9000, (err) => {
+server.listen(1000, (err) => {
     if (err) throw err;
     else {
-      console.log('server started at port ' + 9000);
+      console.log('server started at port ' + 1000);
     }
   });
