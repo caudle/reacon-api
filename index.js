@@ -294,9 +294,9 @@ server.on('upgrade', (request, socket, head) => {
 });
 
 // start server and listen
-server.listen(process.env.PORT, (err) => {
+server.listen(9000, (err) => {
     if (err) throw err;
     else {
-      console.log('server started at port ' + process.env.PORT);
+      console.log('server started at port ' + 9000);
     }
   });
