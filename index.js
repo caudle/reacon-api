@@ -27,7 +27,7 @@ import favEmitter from './events/myevents.js';
 
 // setup server
 const app = express();
-const server = express();
+const server = http.createServer(app);
 //config env 
 dotenv.config();
 
@@ -74,7 +74,7 @@ app.use('/venues', venueRoutes);
 
 
 // websockets
-/*const existsWs = new WebSocketServer({ noServer: true });
+const existsWs = new WebSocketServer({ noServer: true });
 const homeSavedWs = new WebSocketServer({ noServer: true });
 const landSavedWs = new WebSocketServer({ noServer: true });
 const venueSavedWs = new WebSocketServer({ noServer: true });
@@ -260,11 +260,11 @@ searchWs.on('connection', (ws) => {
       ],
     }).limit(5);
   });
-});*/
+});
 
 
-// web sockt config
-/*server.on('upgrade', (request, socket, head) => {
+
+server.on('upgrade', (request, socket, head) => {
   const { pathname } = parse(request.url);
 
   if (pathname === '/user/saved/exists') {
@@ -291,9 +291,12 @@ searchWs.on('connection', (ws) => {
     socket.destroy();
   }
  
-});*/
+});
 
 // start server and listen
-app.listen(3000, function () {
-  console.log("Ready to Go!");
-});
+server.listen(process.env.PORT, (err) => {
+    if (err) throw err;
+    else {
+      console.log('server started at port ' + process.env.PORT);
+    }
+  });
